@@ -12,4 +12,6 @@ public abstract class Heroes {
     public static final Double ARCHER_BOOST = 0.4;
     public static final Double CATAPULT_BOOST = 0.4;
 
+    public String heroType;
+
 }

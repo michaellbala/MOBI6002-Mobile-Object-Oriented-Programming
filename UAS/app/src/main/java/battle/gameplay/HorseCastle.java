@@ -20,14 +20,14 @@ public class HorseCastle extends Castle{
     }
 
     @Override
-    public Castle battleTo(Castle ct2) {
+    public Castle battleTo(Castle c2) {
         double myPower = this.calculatePower();
-        double enemyPower = ct2.calculatePower();
+        double enemyPower = c2.calculatePower();
 
         if (myPower <= enemyPower)
             return this;
         else
-            return ct2;
+            return c2;
 
     }
 

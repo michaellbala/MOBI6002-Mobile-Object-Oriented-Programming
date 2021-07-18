@@ -16,9 +16,8 @@ public abstract class Castle {
 
     public abstract double calculatePower();
 
-    public abstract Castle battleTo(Castle ct2);
+    public abstract Castle battleTo(Castle c2);
 
     public abstract void setArmies(Armies[] ArmyToBattle);
-
 
 }

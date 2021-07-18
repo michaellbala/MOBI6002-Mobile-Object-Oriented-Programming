@@ -10,9 +10,18 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.uas.R;
 
+import javax.crypto.CipherOutputStream;
+
+import battle.gameplay.ArcherArmy;
+import battle.gameplay.Armies;
 import battle.gameplay.BattleWork;
 import battle.gameplay.Castle;
+import battle.gameplay.CavalryArmy;
+import battle.gameplay.HeroArcher;
+import battle.gameplay.HeroCavalry;
+import battle.gameplay.Heroes;
 import battle.gameplay.HorseCastle;
+import battle.gameplay.InfantryArmy;
 import battle.gameplay.WoodCastle;
 
 public class Main extends AppCompatActivity {
@@ -25,11 +34,37 @@ public class Main extends AppCompatActivity {
         HorseCastle c1 = new HorseCastle();
         WoodCastle c2 = new WoodCastle();
 
-//        init armies
+        //        init armies
+        HeroArcher harch = new HeroArcher();
+        HeroCavalry hcav = new HeroCavalry();
+
+        Heroes[] h1 = new Heroes[1];
+        Heroes[] h2 = new Heroes[1];
+        h1[0] = harch; h2[0] = hcav;
+
+        CavalryArmy cav = new CavalryArmy();
+        ArcherArmy arch = new ArcherArmy();
+        InfantryArmy inf = new InfantryArmy();
+        inf.numbers = 1000;
+        cav.numbers = 1000; arch.numbers=1000;
+
+
+        Armies[] armi1 = new Armies[2];
+        armi1[0] = cav;
+        armi1[1] = arch;
+
+        Armies[] armi2 = new Armies[1];
+        armi1[0] = inf;
 
         Castle fightCastle[] = new Castle[2];
         fightCastle[0] = c1;
         fightCastle[1] = c2;
+
+        c1.setArmies(armi1);
+        c2.setArmies(armi2);
+        c1.Heroes = h1;
+        c2.Heroes = h2;
+
 
         initCastleImageBattle(fightCastle);
 
