@@ -20,8 +20,15 @@ public class WoodCastle extends Castle{
     }
 
     @Override
-    public Castle battleTo(Castle ct2) {
-        return null;
+    public Castle battleTo(Castle c2) {
+
+        double myPower = this.calculatePower();
+        double enemyPower = c2.calculatePower();
+
+        if (myPower <= enemyPower)
+            return this;
+        else
+            return c2;
     }
 
     @Override

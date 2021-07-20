@@ -16,12 +16,15 @@ import battle.gameplay.ArcherArmy;
 import battle.gameplay.Armies;
 import battle.gameplay.BattleWork;
 import battle.gameplay.Castle;
+import battle.gameplay.CatapultArmy;
 import battle.gameplay.CavalryArmy;
 import battle.gameplay.HeroArcher;
 import battle.gameplay.HeroCavalry;
 import battle.gameplay.Heroes;
 import battle.gameplay.HorseCastle;
 import battle.gameplay.InfantryArmy;
+import battle.gameplay.SteelCastle;
+import battle.gameplay.StoneCastle;
 import battle.gameplay.WoodCastle;
 
 public class Main extends AppCompatActivity {
@@ -33,37 +36,32 @@ public class Main extends AppCompatActivity {
 
         HorseCastle c1 = new HorseCastle();
         WoodCastle c2 = new WoodCastle();
+        SteelCastle c3 = new SteelCastle();
+        StoneCastle c4 = new StoneCastle();
 
-        //        init armies
-        HeroArcher harch = new HeroArcher();
-        HeroCavalry hcav = new HeroCavalry();
-
-        Heroes[] h1 = new Heroes[1];
-        Heroes[] h2 = new Heroes[1];
-        h1[0] = harch; h2[0] = hcav;
-
-        CavalryArmy cav = new CavalryArmy();
-        ArcherArmy arch = new ArcherArmy();
-        InfantryArmy inf = new InfantryArmy();
-        inf.numbers = 1000;
-        cav.numbers = 1000; arch.numbers=1000;
-
-
-        Armies[] armi1 = new Armies[2];
-        armi1[0] = cav;
-        armi1[1] = arch;
-
-        Armies[] armi2 = new Armies[1];
-        armi1[0] = inf;
-
+//      CAVALRY VS ARCHER
         Castle fightCastle[] = new Castle[2];
         fightCastle[0] = c1;
         fightCastle[1] = c2;
 
-        c1.setArmies(armi1);
-        c2.setArmies(armi2);
-        c1.Heroes = h1;
-        c2.Heroes = h2;
+        CavalryArmy cav = new CavalryArmy();
+        ArcherArmy arch = new ArcherArmy();
+        InfantryArmy inf = new InfantryArmy();
+        CatapultArmy cata = new CatapultArmy();
+        cata.numbers = 1000;
+        inf.numbers = 1000;
+        cav.numbers = 1000; arch.numbers=1000;
+        cav.ArmyType = Armies.CAVALRY; inf.ArmyType = Armies.INFANTRY;
+        arch.ArmyType = Armies.ARCHER; cata.ArmyType = Armies.CATAPULT;
+
+        Armies[] armi1 = new Armies[1];
+        armi1[0] = cav;
+        Armies[] armi2 = new Armies[1];
+        armi1[0] = arch;
+
+        fightCastle[0].ArmyToBattle = armi1;
+        fightCastle[1].ArmyToBattle = armi2;
+
 
 
         initCastleImageBattle(fightCastle);

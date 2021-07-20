@@ -1,5 +1,7 @@
 package battle.gameplay;
 
+import battle.Main;
+
 public class HorseCastle extends Castle{
 
     public HorseCastle(){
